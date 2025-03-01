@@ -50,3 +50,4 @@ CSS/.cache/
 *.tmp
 *.temp
 *.swp
+.gradio
