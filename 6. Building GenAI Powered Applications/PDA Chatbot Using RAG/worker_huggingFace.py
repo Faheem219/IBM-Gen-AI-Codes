@@ -7,6 +7,10 @@ from langchain_community.document_loaders import PyPDFLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain_community.vectorstores import Chroma
 from langchain_community.llms import HuggingFaceHub
+from dotenv import load_dotenv
+
+load_dotenv()
+huggingface_api_token = os.getenv("HUGGINGFACE_USER_ACCESS_TOKEN")
 
 # Check for GPU availability and set the appropriate device for computation.
 DEVICE = "cuda:0" if torch.cuda.is_available() else "cpu"
@@ -21,7 +25,7 @@ embeddings = None
 def init_llm():
     global llm_hub, embeddings
     # Set up the environment variable for HuggingFace and initialize the desired model.
-    os.environ["HUGGINGFACEHUB_API_TOKEN"] = "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"
+    os.environ["HUGGINGFACEHUB_API_TOKEN"] = huggingface_api_token
 
     # repo name for the model
     model_id = "tiiuae/falcon-7b-instruct"
