@@ -1,5 +1,6 @@
-import tensorflow as tf
-from tensorflow import keras
+def detect_intent(text):
+    if "order" or "buy" in text:
+        return "order"
+    return "UNKNOWN"
 
-print("TensorFlow Version:", tf.__version__)
-print("Keras Version:", keras.__version__)
+print(detect_intent("I want to a pizza"))

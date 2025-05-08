@@ -135,8 +135,15 @@ const renderBotResponse = (response, uploadButtonHtml) => {
 
   hideBotLoadingAnimation();
 
+  // Convert the bot's response from markdown to HTML
+  const formattedResponse = marked.parse(response.botResponse.trim());
+
   $("#message-list").append(
-    `<div class='message-line'><div class='message-box${!lightMode ? " dark" : ""}'>${response.botResponse.trim()}<br>${uploadButtonHtml}</div></div>`
+    `<div class='message-line'>
+       <div class='message-box${!lightMode ? " dark" : ""}'>
+         ${formattedResponse}<br>${uploadButtonHtml}
+       </div>
+     </div>`
   );
 
   scrollToBottom();

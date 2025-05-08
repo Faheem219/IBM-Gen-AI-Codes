@@ -32,6 +32,7 @@ dist/
 # Ignore IDE specific files
 .vscode/
 .idea/
+__pycache__
 
 # Optional: Add specific ignores for subfolders if needed
 HTML/temp/
@@ -51,3 +52,5 @@ CSS/.cache/
 *.temp
 *.swp
 .gradio
+
+aircraft_damage_dataset_v1
